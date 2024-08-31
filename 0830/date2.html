@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #clock{
+      position: relative;
+      width: 300px; height: 300px;
+      margin: 100px auto 0;
+      border: 1px solid #333;
+    }
+    #clock img{
+      position: absolute;  /*absolute로 겹쳐놓은 것*/
+      top:0; left: 0;
+      display: block;
+    }
+
+
+  </style>
+  <script>
+    window.onload = function(){
+    // window.onload = function(){} html과 css를 다 읽은 후에 실행
+    
+    autoTime();
+    setInterval(autoTime, 1000);
+
+    function autoTime(){
+    var today = new Date();
+    // alert(today);
+    var y = today.getFullYear(); //년도 추출
+    var m = today.getMonth()+1; //월 추출 월은 0부터 시작해서 +1를 항시 붙혀줘야됨
+    // alert(m);
+    var d = today.getDate(); //일 추출
+    var n = today.getDay();  //요일 추출하는데 숫자로 표기됨
+                             // 일(0) , 월(1) , 화(2) , 금(5) ....
+    // alert(n);
+    var yoil;
+    if(n == '0'){
+      yoil = '일';
+    }else if(n == '1'){
+      yoil = '월';
+    }else if(n == '2'){
+      yoil = '화';
+    }else if(n == '3'){
+      yoil = '수';
+    }else if(n == '4'){
+      yoil = '목';
+    }else if(n == '5'){
+      yoil = '금';
+    }else {
+      yoil = '토';
+    }
+    // alert(yoil);
+    var h = today.getHours();    //시 추출
+    var ml = today.getMinutes(); //분 추출
+    var s = today.getSeconds();  //초 추출
+    // document.write(y+'년 '+m+'월 '+d+'일 '+yoil+'요일 '+h+'시 '+ml+'분 '+s+'초 ');
+    document.getElementById('year').innerHTML = y;
+    // y 라는 변수 내용을 innerHTML => HTML형식으로 바꿔서 id = year 이라는 곳에 넣겠다
+    document.querySelector('#month').innerHTML = m;
+    // #month => id기 때문에 # 붙혀줘야됨 
+    // .getElementById('id명') or .querySelector('#id or .class') 둘 중 하나 쓰면 됨
+    document.querySelector('#date').innerHTML = d;
+    document.querySelector('#nday').innerHTML = yoil;
+    document.querySelector('#hour').innerHTML = h;
+    document.querySelector('#minute').innerHTML = ml;
+    document.querySelector('#second').innerHTML = s;
+
+    var si = document.getElementById('hour1');
+    var bun = document.getElementById('minute1');
+    var cho = document.getElementById('second1');
+
+    if(h > 12) h = h - 12;
+    var dh = (h*30) + (ml/2);
+    var dm = ml*6;
+    var ds = s*6; //초당 6도씩(각도)
+    
+    si.style.transform = "rotate("+dh+"deg)";
+    bun.style.transform = "rotate("+dm+"deg)";
+    cho.style.transform = "rotate("+ds+"deg)";
+    }
+  }
+  </script>
+</head>
+<body>
+  <h1>
+    <span id="year">0000</span>년
+    <span id="month">00</span>월
+    <span id="date">00</span>일
+    <span id="nday">0</span>요일
+    <span id="hour">00</span>시
+
+    <span id="minute">00</span>분
+    <span id="second">00</span>초
+    <!-- alt + shift 방향 아래키 복붙 아래로 쭈욱 됨 누른만큼 -->
+     <!-- 중간에서 줄바꿈 하고싶으면 ctrl + enter -->
+  </h1>
+  <div id="clock">
+    <img src="images/clock.png" alt="시계" id="clock1">
+    <img src="images/h.png" alt="" id="hour1">
+    <img src="images/m.png" alt="" id="minute1">
+    <img src="images/s.png" alt="" id="second1">
+  </div>
+</body> 
+</html>
+

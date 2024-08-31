@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+  <script>
+  </script>
+</head>
+<body>
+  <div id="text">클릭하면 글자가 커져요</div>
+  <button id="textSizeButton">텍스트 크기 변경</button>
+  <script>
+    let btnSize = document.querySelector('#textSizeButton');
+    // addEventListener()
+    // 버블링(예시 : ul안에 li를 클릭하고 싶은데 그 안에 또 클릭할 수 있는 무언가가 다중클릭 되버리는 현상)을 방지할 수 있음
+    btnSize.addEventListener('click',function(){
+      document.getElementById('text').style.fontSize='24px';
+    });
+  </script>
+</body>
+</html>

@@ -68,6 +68,47 @@ for(var i =0; i < 6; i++){
   // $(this).addClass('on');
       // $('nav ul li').removeClass('on');
       // $('nav ul li').eq(i).addClass('on');     
-  $('html, body').stop().animate({scrollTop:offset_div},500);
+  $('html, body').stop().animate({scrollTop:offset_div},1000);
   });
+  // $('section div').mousewheel(function(e,d){
+  //   console.log(d);
+  //   if(d>0){
+  //     let prev = $(this).prev().offset().top;
+  //     $('html, body').stop().animate({scrollTop:prev},1000);
+  //   }
+  //   if(d<0){
+  //     let next = $(this).next().offset().top;
+  //     $('html, body').stop().animate({scrollTop:next},1000);
+  //   }
+  // });
+  
+  $('#popup').draggable();
+
+  // 기본적으로 처음에는 $.cookie('pop') no가 없으므로
+  // #popup을 보여준다
+  if($.cookie('pop')!="no"){
+    $('#popup').show();
+  }
+
+  $('#popup area:eq(0)').click(function(){
+    $.cookie('pop','no',{expires:1})
+    //$.cookie('pop', 'no', {expires: 1})
+    //이름이 'pop'인 쿠키에 'no'라는 값을 설정하고, 
+    // {expires:1} 쿠키의 만료 기간을 1일로 설정합니다.
+    $('#popup').fadeOut('fast');
+    //.fadeOut : 서서히 없어져라 In:서서히 나타나라
+
+    
+  });
+  if($.cookie('pop') == "none"){
+      $('notice_wrap').hide();
+  }
+  let chk = $('#expiresChk'); //checkbox
+  $('.closeBtn').on('click',closePop);
+  function closePop(){
+    if(chk.is(":checked")){ //input창이 checked가 되있으면
+      $.cookie('popup','none',{expires:3});
+    }
+    $("#notice_wrap").fadeOut("fast");
+  }
 });

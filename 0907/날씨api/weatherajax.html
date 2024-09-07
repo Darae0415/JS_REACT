@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <style>
+    .weather{
+      width:300px;
+      height:150px;
+      text-align: center;
+      background-color:cornflowerblue;
+      color: #fff;
+    }
+    .weather > div{
+      float: left;
+      height: 75px;
+      line-height: 75px;
+      width: 50%;
+    }
+    .weather > div.currIcon, .weather > div.currTemp{
+      font-size: 50px;
+    }
+    .weather > div.city{
+      width:100%;
+      font-size:23px;
+    }
+</style>
+  <script>
+    $(function(){
+      let weatherIcon = {
+        '01' : 'fas fa-sun',
+        '02' : 'fas fa-cloud-sun',
+        '03' : 'fas fa-cloud',
+        '04' : 'fas fa-cloud-meatball',
+        '09' : 'fas fa-cloud-sun-rain',
+        '10' : 'fas fa-cloud-showers-heavy',
+        '11' : 'fas fa-poo-storm',
+        '13' : 'fas fa-snowflake',
+        '50' : 'fas fa-smog'
+      }
+      var apiURL = "https://api.openweathermap.org/data/2.5/weather?id=1835553&appid=512fdf7a71f2b9651644b0e9fa0aca94&units=metric";
+      $.ajax({
+        url : apiURL,
+        dataType : "json",
+        type : "GET",
+        async : "false",
+        success:function(data){
+          var $Icon = (data.weather[0].icon).substr(0,2);
+          var $Temp = Math.floor(data.main.temp) + '˚';
+          var $city = data.name;
+          $('.currIcon').append('<i class="'+weatherIcon[$Icon]+'"></i>');
+          $('.currTemp').prepend($Temp);
+          $('.city').append($city);
+          //'<i class="'+weatherIcon[$Icon]+'"></i>'
+        }
+        
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="weather">
+    <div class="currIcon"></div>
+    <div class="currTemp"></div>
+    <div class="city">도시 : </div>
+</div>
+</body>
+</html>

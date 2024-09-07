@@ -1,0 +1,88 @@
+https://openweathermap.org/
+ 
+512fdf7a71f2b9651644b0e9fa0aca94
+
+ 
+
+ 
+http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=512fdf7a71f2b9651644b0e9fa0aca94
+
+512fdf7a71f2b9651644b0e9fa0aca94 => {API Key}
+
+id=524901 => 도시코드
+원하는 지역 또는 도시로 적용시키려면 "도시코드"를 얻어와야됨.
+
+ 
+영어로 수원 검색
+ 
+수원의 도시코드 : 1835553
+http://api.openweathermap.org/data/2.5/forecast?id=1835553&appid=512fdf7a71f2b9651644b0e9fa0aca94
+
+
+ 
+서울 도시코드 : 1835848
+
+
+
+
+
+http://api.openweathermap.org/data/2.5/forecast?id=1835553&appid=512fdf7a71f2b9651644b0e9fa0aca94 를 복붙하면
+ 
+화면이 뜨는데
+출력되서 나오는 온도는 kelvin 온도라고 한다.
+
+메뉴 - api - Parameters of API reponse – json - Units of measurement 
+찾기 ctrl + f (Units of measurement)
+검색 기본 kelvin &units=metric 뒤에 붙인다. (섭씨) &units=imperial(화씨)
+
+현재날씨를 출력하고싶다 (weather)
+
+
+http://api.openweathermap.org/data/2.5/forecast?id=1835553&appid=512fdf7a71f2b9651644b0e9fa0aca94&units=metric 에서
+
+https://api.openweathermap.org/data/2.5/weather?id=1835553&appid=512fdf7a71f2b9651644b0e9fa0aca94&units=metric
+weather?로 바꾼다
+https://openweathermap.org/
+ 
+512fdf7a71f2b9651644b0e9fa0aca94
+
+ 
+
+ 
+http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=512fdf7a71f2b9651644b0e9fa0aca94
+
+512fdf7a71f2b9651644b0e9fa0aca94 => {API Key}
+
+id=524901 => 도시코드
+원하는 지역 또는 도시로 적용시키려면 "도시코드"를 얻어와야됨.
+
+ 
+영어로 수원 검색
+ 
+수원의 도시코드 : 1835553
+http://api.openweathermap.org/data/2.5/forecast?id=1835553&appid=512fdf7a71f2b9651644b0e9fa0aca94
+
+
+ 
+서울 도시코드 : 1835848
+
+
+
+
+
+http://api.openweathermap.org/data/2.5/forecast?id=1835553&appid=512fdf7a71f2b9651644b0e9fa0aca94 를 복붙하면
+ 
+화면이 뜨는데
+출력되서 나오는 온도는 kelvin 온도라고 한다.
+
+메뉴 - api - Parameters of API reponse – json - Units of measurement 
+찾기 ctrl + f (Units of measurement)
+검색 기본 kelvin &units=metric 뒤에 붙인다. (섭씨) &units=imperial(화씨)
+
+현재날씨를 출력하고싶다 (weather)
+
+
+http://api.openweathermap.org/data/2.5/forecast?id=1835553&appid=512fdf7a71f2b9651644b0e9fa0aca94&units=metric 에서
+
+https://api.openweathermap.org/data/2.5/weather?id=1835553&appid=512fdf7a71f2b9651644b0e9fa0aca94&units=metric
+weather?로 바꾼다

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  //콜백함수 : 다른함수에 매개변수로 함수를 넘겨준 것
+  function checkMode(mode, goodCallback, badCallback){
+    if(mode == "good"){
+      goodCallback();
+    } else{
+      badCallback();
+    }
+  }
+  function cry(){
+    console.log("Action :: CRY");
+  }
+  function sing(){
+	  console.log("Action :: SING");
+  }
+  function dance(){
+	  console.log("Action :: DANCE");
+  }
+  checkMode("sad", sing, cry);
+</script>
+</html>
